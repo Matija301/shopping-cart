@@ -1,0 +1,45 @@
+$Main-font: 1.4rem;
+$Main-line-h: 1.8rem;
+$Secondary-line-h: 2.4rem;
+$Main-margin: 4.8rem;
+$arrow-size: 0.6rem;
+$main-txt-color: #0d0d0d;
+$secondary-text-color: #707070;
+$margin-1: 1.8rem;
+$BColor-checkout: #79ad36;
+$BColor-arrow: #f9f9f9;
+$BorderColor: #bcbcbc;
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
+);
+
+@mixin image-size {
+  height: 9.5rem;
+  width: 9.5rem;
+}
+@mixin center {
+  margin: 0 auto;
+}
+@mixin center-flex {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+@mixin display-BI {
+  display: inline-block;
+}
+
+@mixin Roboto-500 {
+  font-family: "Roboto", sans-serif;
+  font-size: 500;
+}
+@mixin Roboto-400 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+@mixin button-arrow {
+  border: 1px solid #bcbcbc;
+}

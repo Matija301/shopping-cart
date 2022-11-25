@@ -1,0 +1,163 @@
+@use "./variables" as *;
+@use "./resets" as *;
+
+p {
+  font-size: $Main-font;
+  line-height: $Main-line-h;
+}
+.shopping {
+  max-width: 50rem;
+  margin: 0 auto;
+  position: relative;
+}
+.hidden {
+  display: none !important;
+}
+
+.shopping-cart {
+  margin: 0 6.9rem 0 auto;
+  width: 8.6rem;
+  height: 7.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0%;
+  border: 1px #000 solid;
+}
+.shopping-cart-svg {
+  width: 4.2rem;
+  height: 3.5rem;
+}
+.triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 1.1rem solid transparent;
+  border-right: 1.1rem solid transparent;
+  border-bottom: 2.4rem solid #fff;
+  filter: drop-shadow(0.5px 0px 1px rgba(0, 0, 0, 0.45));
+  position: absolute;
+  top: -2.4rem;
+  right: 3.2rem;
+}
+
+.shop-window {
+  max-width: 36rem;
+  margin: 2.8rem 6.8rem 0 auto;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.45);
+  position: relative;
+  z-index: 5;
+}
+
+.my-cart {
+  margin: 0.12rem 0 0.3rem 0;
+  @include Roboto-500;
+}
+
+.shop-window-smaller {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: center;
+  width: 32.4rem;
+}
+
+.cart-img {
+  height: 9.5rem;
+  width: 9.5rem;
+}
+
+.item {
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  width: 32.4rem;
+  align-self: flex-start;
+  padding: 1.3rem 0;
+}
+
+.up {
+  width: 32.4rem;
+  height: 3rem;
+  border-radius: 0%;
+  @include button-arrow;
+  @include center;
+}
+
+.down {
+  width: 32.4rem;
+  height: 3rem;
+  border-radius: 0%;
+  @include button-arrow;
+  @include center;
+}
+
+.arrow-down {
+  width: $arrow-size;
+  @include center-flex;
+  @include center;
+}
+
+.arrow-up {
+  width: $arrow-size;
+  @include center-flex;
+  @include center;
+}
+
+.item-list {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin: 1.4rem 0 1.4rem 0;
+}
+
+.item-border {
+  border-top: 1px solid $BorderColor;
+  border-bottom: 1px solid $BorderColor;
+}
+
+.item-3 {
+  padding-bottom: 1.4rem;
+}
+
+.item-1 {
+  padding-top: 1.4rem;
+}
+
+.item-name {
+  margin-bottom: 0.6rem;
+  line-height: $Secondary-line-h;
+}
+
+.brand,
+.color {
+  color: $secondary-text-color;
+  line-height: $Main-line-h;
+}
+
+.price {
+  margin-top: 0.6rem;
+}
+.buttons {
+  margin-top: 1.8rem;
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: $margin-1;
+}
+
+.edit {
+  width: 13.5rem;
+  height: 4.2rem;
+  border-radius: 0%;
+  background-color: #fff;
+  border: solid 1px #0d0d0d;
+}
+.checkout {
+  width: 17.7rem;
+  height: 4.2rem;
+  border-radius: 0%;
+  @include Roboto-500;
+  color: #fff;
+  background-color: $BColor-checkout;
+}
