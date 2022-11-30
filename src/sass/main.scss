@@ -28,13 +28,13 @@ p {
   width: 4.2rem;
   height: 3.5rem;
 }
+
 .triangle-up {
-  width: 0;
-  height: 0;
+  filter: drop-shadow(0px -2px 1px rgba(0, 0, 0, 0.45));
+  z-index: -1;
   border-left: 1.1rem solid transparent;
   border-right: 1.1rem solid transparent;
   border-bottom: 2.4rem solid #fff;
-  filter: drop-shadow(0.5px 0px 1px rgba(0, 0, 0, 0.45));
   position: absolute;
   top: -2.4rem;
   right: 3.2rem;
@@ -47,7 +47,7 @@ p {
   justify-content: center;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.45);
   position: relative;
-  z-index: 5;
+  z-index: 999;
 }
 
 .my-cart {
@@ -117,14 +117,6 @@ p {
   border-bottom: 1px solid $BorderColor;
 }
 
-.item-3 {
-  padding-bottom: 1.4rem;
-}
-
-.item-1 {
-  padding-top: 1.4rem;
-}
-
 .item-name {
   margin-bottom: 0.6rem;
   line-height: $Secondary-line-h;
@@ -152,7 +144,13 @@ p {
   border-radius: 0%;
   background-color: #fff;
   border: solid 1px #0d0d0d;
+  cursor: pointer;
+  transition: all 0.3s;
 }
+.edit:hover {
+  background-color: #f2f2f2;
+}
+
 .checkout {
   width: 17.7rem;
   height: 4.2rem;
@@ -160,4 +158,10 @@ p {
   @include Roboto-500;
   color: #fff;
   background-color: $BColor-checkout;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.checkout:hover {
+  background-color: #5f882a;
 }

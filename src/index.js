@@ -1,39 +1,35 @@
-const addToJs = (item) => {
+function addToJs (item) {
   return document.querySelector(`.${item}`);
 };
-
+const itemsArray = document.querySelectorAll(".item");
 const buttonCart = addToJs("shopping-cart");
-const shopWindow = addToJs("shop-window");
-const item1 = addToJs("item-1");
-const item2 = addToJs("item-2");
-const item3 = addToJs("item-3");
-const item4 = addToJs("item-4");
 const btnDown = addToJs("down");
 const btnUp = addToJs("up");
+const shopWindow = addToJs("shop-window");
 let itemCart = [1, 2, 3];
 
 btnDown.addEventListener("click", () => {
-  if (itemCart[itemCart.length - 1] <= 3) {
-    let item = itemCart.map((x) => {
+  if (itemCart[itemCart.length - 1] < itemsArray.length) {
+    itemCart = itemCart.map((x) => {
       return x + 1;
     });
-    console.log(item);
-    item3.classList.add("item-border");
-    item2.classList.remove("item-border");
-    item4.classList.remove("hidden");
-    item1.classList.add("hidden");
+    console.log(itemCart)
+    itemsArray[`${itemCart[0] - 2}`].classList.add("hidden");
+    itemsArray[`${itemCart[1] - 2}`].classList.remove("item-border");
+    itemsArray[`${itemCart[2] - 2}`].classList.add("item-border");
+    itemsArray[`${itemCart[2]-1}`].classList.remove("hidden");
   }
 });
 btnUp.addEventListener("click", () => {
-  if (itemCart[0] >= 1) {
-    let item = itemCart.map((x) => {
+  if (itemCart[0] > 1) {
+    itemCart = itemCart.map((x) => {
       return x - 1;
     });
-    console.log(item);
-    item1.classList.remove("hidden");
-    item2.classList.add("item-border");
-    item3.classList.remove("item-border");
-    item4.classList.add("hidden");
+    console.log(itemCart)
+    itemsArray[`${itemCart[0] -1}`].classList.remove("hidden");
+    itemsArray[`${itemCart[0]}`].classList.add("item-border");
+    itemsArray[`${itemCart[1]}`].classList.remove("item-border");
+    itemsArray[`${itemCart[2]}`].classList.add("hidden");
   }
 });
 
