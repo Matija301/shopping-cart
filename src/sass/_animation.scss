@@ -1,0 +1,39 @@
+.shop-window[open] {
+  display: flex;
+  animation: display-in 0.5s ease;
+}
+@keyframes display-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.shop-window[close] {
+  animation: display-out 0.5s ease;
+}
+
+@keyframes display-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.shop-window[closed] {
+  display: none;
+}
+
+@keyframes btn-press {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1, 1.4);
+  }
+}

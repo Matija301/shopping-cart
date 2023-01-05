@@ -1,6 +1,6 @@
-function addToJs (item) {
+function addToJs(item) {
   return document.querySelector(`.${item}`);
-};
+}
 const itemsArray = document.querySelectorAll(".item");
 const buttonCart = addToJs("shopping-cart");
 const btnDown = addToJs("down");
@@ -13,11 +13,11 @@ btnDown.addEventListener("click", () => {
     itemCart = itemCart.map((x) => {
       return x + 1;
     });
-    console.log(itemCart)
+    console.log(itemCart);
     itemsArray[`${itemCart[0] - 2}`].classList.add("hidden");
     itemsArray[`${itemCart[1] - 2}`].classList.remove("item-border");
     itemsArray[`${itemCart[2] - 2}`].classList.add("item-border");
-    itemsArray[`${itemCart[2]-1}`].classList.remove("hidden");
+    itemsArray[`${itemCart[2] - 1}`].classList.remove("hidden");
   }
 });
 btnUp.addEventListener("click", () => {
@@ -25,8 +25,8 @@ btnUp.addEventListener("click", () => {
     itemCart = itemCart.map((x) => {
       return x - 1;
     });
-    console.log(itemCart)
-    itemsArray[`${itemCart[0] -1}`].classList.remove("hidden");
+    console.log(itemCart);
+    itemsArray[`${itemCart[0] - 1}`].classList.remove("hidden");
     itemsArray[`${itemCart[0]}`].classList.add("item-border");
     itemsArray[`${itemCart[1]}`].classList.remove("item-border");
     itemsArray[`${itemCart[2]}`].classList.add("hidden");
@@ -34,5 +34,21 @@ btnUp.addEventListener("click", () => {
 });
 
 buttonCart.addEventListener("click", () => {
-  shopWindow.classList.toggle("hidden");
+  if (shopWindow.getAttribute("open")) {
+    shopWindow.removeAttribute("open");
+    shopWindow.setAttribute("close", null);
+    shopWindow.addEventListener("animationend", displayClose, { once: true });
+  } else {
+    shopWindow.removeEventListener("animationend", displayClose, {
+      once: true,
+    });
+    shopWindow.removeAttribute("close");
+    shopWindow.setAttribute("open", "true");
+    shopWindow.removeAttribute("closed");
+  }
 });
+
+function displayClose() {
+  shopWindow.removeAttribute("close");
+  shopWindow.setAttribute("closed", null);
+}

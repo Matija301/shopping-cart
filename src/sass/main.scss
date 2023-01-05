@@ -1,5 +1,6 @@
 @use "./variables" as *;
 @use "./resets" as *;
+@use "./animation" as *;
 
 p {
   font-size: $Main-font;
@@ -83,6 +84,31 @@ p {
   border-radius: 0%;
   @include button-arrow;
   @include center;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.up:hover {
+  background-color: #c1c1c1;
+}
+.up:hover .arrow-up {
+  transform: scale(2.5);
+}
+
+.up::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #cecece;
+  z-index: -1;
+  transition: all 0.3s;
+  opacity: 1;
+}
+.up:active::before {
+  animation: btn-press 0.2s ease;
 }
 
 .down {
@@ -91,18 +117,45 @@ p {
   border-radius: 0%;
   @include button-arrow;
   @include center;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.down:hover {
+  background-color: #c1c1c1;
+}
+.down:hover .arrow-down {
+  transform: scale(2.5);
+}
+
+.down::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #cecece;
+  z-index: -1;
+  transition: all 0.3s;
+  opacity: 1;
+}
+.down:active::before {
+  animation: btn-press 0.2s ease;
 }
 
 .arrow-down {
   width: $arrow-size;
   @include center-flex;
   @include center;
+  transition: all 0.3s;
 }
 
 .arrow-up {
   width: $arrow-size;
   @include center-flex;
   @include center;
+  transition: all 0.3s;
 }
 
 .item-list {
@@ -142,13 +195,53 @@ p {
   width: 13.5rem;
   height: 4.2rem;
   border-radius: 0%;
-  background-color: #fff;
+  background-color: transparent;
   border: solid 1px #0d0d0d;
   cursor: pointer;
   transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  transition: font-weight 0.05s;
+}
+
+.edit:active {
+  font-weight: 600;
+}
+
+.edit::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #000;
+  transform: translateY(-100%);
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.edit:hover::before {
+  transform: translateY(0);
+}
+
+.edit::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background-color: #000;
+  transform: translateY(100%);
+  transition: all 0.3s;
+  z-index: -1;
+}
+.edit:hover::after {
+  transform: translateY(0);
 }
 .edit:hover {
-  background-color: #f2f2f2;
+  color: #fff;
 }
 
 .checkout {
